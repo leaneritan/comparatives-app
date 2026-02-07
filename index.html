@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Comparatives & Superlatives!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #f0f9ff;
+        }
+        h1, h2, h3 {
+            font-family: 'Fredoka One', cursive;
+        }
+        .btn {
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-yellow-400 p-6 shadow-md text-center">
+        <h1 class="text-4xl text-white drop-shadow-lg">🌟 Grammar Adventure 🌟</h1>
+        <p class="text-white text-lg mt-2">Comparatives & Superlatives</p>
+    </header>
+
+    <main class="container mx-auto p-4 max-w-4xl">
+
+        <!-- Navigation Tabs -->
+        <nav class="flex justify-center space-x-2 mb-8 mt-4">
+            <button onclick="showSection('learn')" class="btn bg-blue-500 text-white px-4 py-2 rounded-full font-bold">Learn</button>
+            <button onclick="showSection('compare')" class="btn bg-green-500 text-white px-4 py-2 rounded-full font-bold">Compare</button>
+            <button onclick="showSection('practice')" class="btn bg-purple-500 text-white px-4 py-2 rounded-full font-bold">Practice</button>
+            <button onclick="showSection('quiz')" class="btn bg-red-500 text-white px-4 py-2 rounded-full font-bold">Quiz</button>
+        </nav>
+
+        <!-- Learn Section -->
+        <section id="learn" class="section bg-white p-8 rounded-3xl shadow-xl">
+            <h2 class="text-3xl text-blue-600 mb-6">How do we compare things?</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
+                    <h3 class="text-xl text-blue-700 mb-4">Short Words (1 syllable)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <span class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">1</span>
+                            <span>Add <b>-er</b> to compare 2 things. (Fast → Fast<b>er</b>)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">2</span>
+                            <span>Add <b>-est</b> for the top one! (Fast → Fast<b>est</b>)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-purple-50 p-6 rounded-2xl border-2 border-purple-200">
+                    <h3 class="text-xl text-purple-700 mb-4">Long Words (3+ syllables)</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <span class="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">1</span>
+                            <span>Use <b>more</b> to compare 2 things. (<b>More</b> beautiful)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center mr-3">2</span>
+                            <span>Use <b>most</b> for the top one! (<b>Most</b> beautiful)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 grid md:grid-cols-2 gap-8">
+                <div class="bg-yellow-50 p-6 rounded-2xl border-2 border-yellow-200">
+                    <h3 class="text-xl text-yellow-700 mb-2">The "-y" Rule</h3>
+                    <p>If a word ends in <b>-y</b>, change it to <b>-i</b> and then add <b>-er</b> or <b>-est</b>!</p>
+                    <p class="mt-2 font-bold text-center text-lg">Happy → Happ<b>ier</b> → Happ<b>iest</b></p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-2xl border-2 border-red-200">
+                    <h3 class="text-xl text-red-700 mb-2">Special Rules!</h3>
+                    <p>Some words are tricky! They change completely:</p>
+                    <ul class="mt-2 text-center">
+                        <li>Good → <b>Better</b> → <b>Best</b></li>
+                        <li>Bad → <b>Worse</b> → <b>Worst</b></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compare Section -->
+        <section id="compare" class="section hidden bg-white p-8 rounded-3xl shadow-xl">
+            <h2 class="text-3xl text-green-600 mb-6">Let's Compare Animals!</h2>
+            <div class="flex flex-col items-center space-y-8">
+                <div class="flex items-center space-x-8">
+                    <div class="text-center p-4 bg-gray-100 rounded-xl w-40">
+                        <div id="animal1-icon" class="text-6xl mb-2">🐘</div>
+                        <select id="animal1-select" onchange="updateComparison()" class="w-full p-2 rounded">
+                            <option value="Elephant">Elephant</option>
+                            <option value="Cheetah">Cheetah</option>
+                            <option value="Giraffe">Giraffe</option>
+                            <option value="Mouse">Mouse</option>
+                            <option value="Snail">Snail</option>
+                            <option value="Blue Whale">Blue Whale</option>
+                        </select>
+                    </div>
+                    <div class="text-4xl font-bold">VS</div>
+                    <div class="text-center p-4 bg-gray-100 rounded-xl w-40">
+                        <div id="animal2-icon" class="text-6xl mb-2">🐆</div>
+                        <select id="animal2-select" onchange="updateComparison()" class="w-full p-2 rounded">
+                            <option value="Cheetah" selected>Cheetah</option>
+                            <option value="Elephant">Elephant</option>
+                            <option value="Giraffe">Giraffe</option>
+                            <option value="Mouse">Mouse</option>
+                            <option value="Snail">Snail</option>
+                            <option value="Blue Whale">Blue Whale</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="comparison-result" class="text-2xl font-bold text-green-700 bg-green-50 p-6 rounded-2xl w-full text-center border-2 border-green-200">
+                    The Elephant is bigger than the Cheetah!
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section id="practice" class="section hidden bg-white p-8 rounded-3xl shadow-xl">
+            <h2 class="text-3xl text-purple-600 mb-6">Practice Time!</h2>
+            <div id="practice-container" class="space-y-6">
+                <!-- Practice items will be generated by JS -->
+            </div>
+            <button onclick="checkPractice()" class="mt-8 bg-purple-600 text-white px-8 py-3 rounded-full font-bold text-xl block mx-auto">Check My Answers!</button>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section hidden bg-white p-8 rounded-3xl shadow-xl">
+            <div id="quiz-intro">
+                <h2 class="text-3xl text-red-600 mb-6">Ready for the Grand Quiz?</h2>
+                <p class="text-xl mb-8">Test your knowledge with 20 questions and become a Grammar Master!</p>
+                <button onclick="startQuiz()" class="bg-red-600 text-white px-12 py-4 rounded-full font-bold text-2xl block mx-auto shadow-lg hover:bg-red-700">START!</button>
+            </div>
+            <div id="quiz-question-container" class="hidden">
+                <div class="mb-4 text-gray-500 font-bold">Question <span id="current-q">1</span> of 20</div>
+                <div id="quiz-question-text" class="text-2xl font-bold mb-8 p-6 bg-red-50 rounded-2xl border-2 border-red-100"></div>
+                <div id="quiz-options" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Options will be here -->
+                </div>
+            </div>
+            <div id="quiz-feedback" class="hidden text-center">
+                <h2 class="text-4xl text-yellow-600 mb-4">Amazing Job! 🎈</h2>
+                <p class="text-2xl mb-8">You got <span id="score" class="font-bold text-red-600">0</span> out of 20 correct!</p>
+                <button onclick="showSection('learn')" class="bg-blue-500 text-white px-8 py-3 rounded-full font-bold">Play Again!</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        const vocabulary = [
+          {"base": "fast", "comparative": "faster", "superlative": "fastest"},
+          {"base": "slow", "comparative": "slower", "superlative": "slowest"},
+          {"base": "tall", "comparative": "taller", "superlative": "tallest"},
+          {"base": "short", "comparative": "shorter", "superlative": "shortest"},
+          {"base": "big", "comparative": "bigger", "superlative": "biggest"},
+          {"base": "small", "comparative": "smaller", "superlative": "smallest"},
+          {"base": "strong", "comparative": "stronger", "superlative": "strongest"},
+          {"base": "quiet", "comparative": "quieter", "superlative": "quietest"},
+          {"base": "funny", "comparative": "funnier", "superlative": "funniest"},
+          {"base": "lazy", "comparative": "lazier", "superlative": "laziest"},
+          {"base": "noisy", "comparative": "noisier", "superlative": "noisiest"},
+          {"base": "cheerful", "comparative": "more cheerful", "superlative": "most cheerful"},
+          {"base": "young", "comparative": "younger", "superlative": "youngest"},
+          {"base": "old", "comparative": "older", "superlative": "oldest"},
+          {"base": "intelligent", "comparative": "more intelligent", "superlative": "most intelligent"},
+          {"base": "interesting", "comparative": "more interesting", "superlative": "most interesting"},
+          {"base": "exciting", "comparative": "more exciting", "superlative": "most exciting"},
+          {"base": "beautiful", "comparative": "more beautiful", "superlative": "most beautiful"},
+          {"base": "dangerous", "comparative": "more dangerous", "superlative": "most dangerous"},
+          {"base": "friendly", "comparative": "friendlier", "superlative": "friendliest"},
+          {"base": "happy", "comparative": "happier", "superlative": "happiest"},
+          {"base": "sad", "comparative": "sadder", "superlative": "saddest"},
+          {"base": "hot", "comparative": "hotter", "superlative": "hottest"},
+          {"base": "cold", "comparative": "colder", "superlative": "coldest"},
+          {"base": "heavy", "comparative": "heavier", "superlative": "heaviest"},
+          {"base": "light", "comparative": "lighter", "superlative": "lightest"},
+          {"base": "expensive", "comparative": "more expensive", "superlative": "most expensive"},
+          {"base": "cheap", "comparative": "cheaper", "superlative": "cheapest"},
+          {"base": "good", "comparative": "better", "superlative": "best"},
+          {"base": "bad", "comparative": "worse", "superlative": "worst"}
+        ];
+
+        const animals = {
+            "Elephant": { icon: "🐘", size: 5, speed: 2, height: 4 },
+            "Cheetah": { icon: "🐆", size: 2, speed: 5, height: 2 },
+            "Giraffe": { icon: "🦒", size: 3, speed: 3, height: 5 },
+            "Mouse": { icon: "🐭", size: 1, speed: 4, height: 1 },
+            "Snail": { icon: "🐌", size: 0.5, speed: 0.5, height: 0.5 },
+            "Blue Whale": { icon: "🐋", size: 10, speed: 1.5, height: 3 }
+        };
+
+        const sentenceQuestions = [
+            { q: "Eugenius is the ________ person in his family.", a: "youngest", options: ["youngest", "younger", "more young", "most young"] },
+            { q: "Eugenius is the ________ boy in his class.", a: "most intelligent", options: ["most intelligent", "more intelligent", "intelligenter", "intelligentest"] },
+            { q: "Maths and Science are the ________ subjects in the world!", a: "most interesting", options: ["most interesting", "more interesting", "interestingest", "interestinger"] },
+            { q: "Ginny is three months ________ than Eugenius.", a: "younger", options: ["younger", "youngest", "more young", "most young"] },
+            { q: "Emma and Jo are ________ than Ginny.", a: "older", options: ["older", "oldest", "more old", "most old"] },
+            { q: "History is ________ than Maths and Science.", a: "more interesting", options: ["more interesting", "most interesting", "interestinger", "interestingest"] },
+            { q: "Dax is the ________ robot in the world!", a: "laziest", options: ["laziest", "lazier", "most lazy", "more lazy"] },
+            { q: "Dax thinks TV is ________ than housework.", a: "more exciting", options: ["more exciting", "most exciting", "excitinger", "excitingest"] },
+            { q: "The blue robot is ________ than the green robot.", a: "older", options: ["older", "oldest", "more old", "most old"] },
+            { q: "Who is the ________ person in the class?", a: "tallest", options: ["tallest", "taller", "most tall", "more tall"] }
+        ];
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+            if (sectionId === 'practice') initPractice();
+        }
+
+        // Comparison Logic
+        function updateComparison() {
+            const a1 = document.getElementById('animal1-select').value;
+            const a2 = document.getElementById('animal2-select').value;
+            document.getElementById('animal1-icon').innerText = animals[a1].icon;
+            document.getElementById('animal2-icon').innerText = animals[a2].icon;
+
+            if (a1 === a2) {
+                document.getElementById('comparison-result').innerText = `Both are the same!`;
+                return;
+            }
+
+            let trait = "bigger";
+            if (animals[a1].size > animals[a2].size) trait = "bigger";
+            else if (animals[a1].speed > animals[a2].speed) trait = "faster";
+            else if (animals[a1].height > animals[a2].height) trait = "taller";
+            else trait = "smaller";
+
+            document.getElementById('comparison-result').innerText = `The ${a1} is ${trait} than the ${a2}!`;
+        }
+
+        // Practice Logic
+        function initPractice() {
+            const container = document.getElementById('practice-container');
+            container.innerHTML = '';
+            const samples = vocabulary.sort(() => 0.5 - Math.random()).slice(0, 10);
+            samples.forEach((v, i) => {
+                const div = document.createElement('div');
+                div.className = "flex items-center space-x-4 p-4 bg-gray-50 rounded-xl";
+                div.innerHTML = `
+                    <span class="w-24 font-bold text-lg">${v.base.toUpperCase()}</span>
+                    <span>→</span>
+                    <input type="text" id="p-comp-${i}" placeholder="comparative" class="p-2 rounded border w-40">
+                    <span>→</span>
+                    <input type="text" id="p-sup-${i}" placeholder="superlative" class="p-2 rounded border w-40">
+                    <span id="p-res-${i}"></span>
+                `;
+                div.dataset.comp = v.comparative;
+                div.dataset.sup = v.superlative;
+                container.appendChild(div);
+            });
+        }
+
+        function checkPractice() {
+            const items = document.getElementById('practice-container').children;
+            for (let i = 0; i < items.length; i++) {
+                const compInput = document.getElementById(`p-comp-${i}`);
+                const supInput = document.getElementById(`p-sup-${i}`);
+                const res = document.getElementById(`p-res-${i}`);
+
+                const isCompCorrect = compInput.value.toLowerCase().trim() === items[i].dataset.comp;
+                const isSupCorrect = supInput.value.toLowerCase().trim() === items[i].dataset.sup;
+
+                if (isCompCorrect && isSupCorrect) {
+                    res.innerText = "✅";
+                    items[i].classList.add('bg-green-100');
+                    items[i].classList.remove('bg-red-100');
+                } else {
+                    res.innerText = "❌";
+                    items[i].classList.add('bg-red-100');
+                    items[i].classList.remove('bg-green-100');
+                }
+            }
+        }
+
+        // Quiz Logic
+        let quizIndex = 0;
+        let quizScore = 0;
+        let quizQuestions = [];
+
+        function startQuiz() {
+            quizIndex = 0;
+            quizScore = 0;
+            quizQuestions = generateQuestions();
+            document.getElementById('quiz-intro').classList.add('hidden');
+            document.getElementById('quiz-feedback').classList.add('hidden');
+            document.getElementById('quiz-question-container').classList.remove('hidden');
+            showQuestion();
+        }
+
+        function generateQuestions() {
+            const vocabPool = vocabulary.sort(() => 0.5 - Math.random()).slice(0, 10).map(v => {
+                const type = Math.random() > 0.5 ? 'comparative' : 'superlative';
+                const question = type === 'comparative' ?
+                    `What is the comparative form of "${v.base}"?` :
+                    `What is the superlative form of "${v.base}"?`;
+                const answer = v[type];
+
+                // Distractors
+                let distractors = [];
+                if (type === 'comparative') {
+                    if (v.base === 'good') distractors = ['gooder', 'more good', 'best'];
+                    else if (v.base === 'bad') distractors = ['badder', 'more bad', 'worst'];
+                    else distractors = [v.base + "er", "more " + v.base, v.base + "est"].filter(d => d !== answer);
+                } else {
+                    if (v.base === 'good') distractors = ['goodest', 'most good', 'better'];
+                    else if (v.base === 'bad') distractors = ['baddest', 'most bad', 'worse'];
+                    else distractors = [v.base + "est", "most " + v.base, v.base + "er"].filter(d => d !== answer);
+                }
+                // Mix in some other random forms
+                while(distractors.length < 3) {
+                    const rv = vocabulary[Math.floor(Math.random() * vocabulary.length)];
+                    const form = rv[type];
+                    if (form !== answer && !distractors.includes(form)) distractors.push(form);
+                }
+
+                return {
+                    question,
+                    answer,
+                    options: [answer, ...distractors.slice(0,3)].sort(() => 0.5 - Math.random())
+                };
+            });
+
+            const sentencePool = sentenceQuestions.sort(() => 0.5 - Math.random()).slice(0, 10).map(s => ({
+                question: s.q,
+                answer: s.a,
+                options: s.options.sort(() => 0.5 - Math.random())
+            }));
+
+            return [...vocabPool, ...sentencePool].sort(() => 0.5 - Math.random());
+        }
+
+        function showQuestion() {
+            const q = quizQuestions[quizIndex];
+            document.getElementById('current-q').innerText = quizIndex + 1;
+            document.getElementById('quiz-question-text').innerText = q.question;
+            const optionsDiv = document.getElementById('quiz-options');
+            optionsDiv.innerHTML = '';
+            q.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "btn bg-white border-4 border-red-200 p-4 rounded-2xl text-xl font-bold hover:bg-red-50";
+                btn.innerText = opt;
+                btn.onclick = () => handleAnswer(opt);
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(choice) {
+            if (choice === quizQuestions[quizIndex].answer) {
+                quizScore++;
+            }
+            quizIndex++;
+            if (quizIndex < quizQuestions.length) {
+                showQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function finishQuiz() {
+            document.getElementById('quiz-question-container').classList.add('hidden');
+            document.getElementById('quiz-feedback').classList.remove('hidden');
+            document.getElementById('score').innerText = quizScore;
+        }
+
+        // Initialize first section
+        showSection('learn');
+    </script>
+</body>
+</html>
