@@ -77,10 +77,20 @@
                 </div>
             </div>
 
-            <div class="mt-8 bg-yellow-50 p-6 rounded-2xl border-2 border-yellow-200">
-                <h3 class="text-xl text-yellow-700 mb-2">The "-y" Rule</h3>
-                <p>If a word ends in <b>-y</b>, change it to <b>-i</b> and then add <b>-er</b> or <b>-est</b>!</p>
-                <p class="mt-2 font-bold text-center text-lg">Happy → Happ<b>ier</b> → Happ<b>iest</b></p>
+            <div class="mt-8 grid md:grid-cols-2 gap-8">
+                <div class="bg-yellow-50 p-6 rounded-2xl border-2 border-yellow-200">
+                    <h3 class="text-xl text-yellow-700 mb-2">The "-y" Rule</h3>
+                    <p>If a word ends in <b>-y</b>, change it to <b>-i</b> and then add <b>-er</b> or <b>-est</b>!</p>
+                    <p class="mt-2 font-bold text-center text-lg">Happy → Happ<b>ier</b> → Happ<b>iest</b></p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-2xl border-2 border-red-200">
+                    <h3 class="text-xl text-red-700 mb-2">Special Rules!</h3>
+                    <p>Some words are tricky! They change completely:</p>
+                    <ul class="mt-2 text-center">
+                        <li>Good → <b>Better</b> → <b>Best</b></li>
+                        <li>Bad → <b>Worse</b> → <b>Worst</b></li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -97,6 +107,7 @@
                             <option value="Giraffe">Giraffe</option>
                             <option value="Mouse">Mouse</option>
                             <option value="Snail">Snail</option>
+                            <option value="Blue Whale">Blue Whale</option>
                         </select>
                     </div>
                     <div class="text-4xl font-bold">VS</div>
@@ -108,6 +119,7 @@
                             <option value="Giraffe">Giraffe</option>
                             <option value="Mouse">Mouse</option>
                             <option value="Snail">Snail</option>
+                            <option value="Blue Whale">Blue Whale</option>
                         </select>
                     </div>
                 </div>
@@ -130,11 +142,11 @@
         <section id="quiz" class="section hidden bg-white p-8 rounded-3xl shadow-xl">
             <div id="quiz-intro">
                 <h2 class="text-3xl text-red-600 mb-6">Ready for the Grand Quiz?</h2>
-                <p class="text-xl mb-8">Test your knowledge and become a Grammar Master!</p>
+                <p class="text-xl mb-8">Test your knowledge with 20 questions and become a Grammar Master!</p>
                 <button onclick="startQuiz()" class="bg-red-600 text-white px-12 py-4 rounded-full font-bold text-2xl block mx-auto shadow-lg hover:bg-red-700">START!</button>
             </div>
             <div id="quiz-question-container" class="hidden">
-                <div class="mb-4 text-gray-500 font-bold">Question <span id="current-q">1</span> of 10</div>
+                <div class="mb-4 text-gray-500 font-bold">Question <span id="current-q">1</span> of 20</div>
                 <div id="quiz-question-text" class="text-2xl font-bold mb-8 p-6 bg-red-50 rounded-2xl border-2 border-red-100"></div>
                 <div id="quiz-options" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <!-- Options will be here -->
@@ -142,7 +154,7 @@
             </div>
             <div id="quiz-feedback" class="hidden text-center">
                 <h2 class="text-4xl text-yellow-600 mb-4">Amazing Job! 🎈</h2>
-                <p class="text-2xl mb-8">You got <span id="score" class="font-bold text-red-600">0</span> out of 10 correct!</p>
+                <p class="text-2xl mb-8">You got <span id="score" class="font-bold text-red-600">0</span> out of 20 correct!</p>
                 <button onclick="showSection('learn')" class="bg-blue-500 text-white px-8 py-3 rounded-full font-bold">Play Again!</button>
             </div>
         </section>
@@ -170,7 +182,17 @@
           {"base": "exciting", "comparative": "more exciting", "superlative": "most exciting"},
           {"base": "beautiful", "comparative": "more beautiful", "superlative": "most beautiful"},
           {"base": "dangerous", "comparative": "more dangerous", "superlative": "most dangerous"},
-          {"base": "friendly", "comparative": "friendlier", "superlative": "friendliest"}
+          {"base": "friendly", "comparative": "friendlier", "superlative": "friendliest"},
+          {"base": "happy", "comparative": "happier", "superlative": "happiest"},
+          {"base": "sad", "comparative": "sadder", "superlative": "saddest"},
+          {"base": "hot", "comparative": "hotter", "superlative": "hottest"},
+          {"base": "cold", "comparative": "colder", "superlative": "coldest"},
+          {"base": "heavy", "comparative": "heavier", "superlative": "heaviest"},
+          {"base": "light", "comparative": "lighter", "superlative": "lightest"},
+          {"base": "expensive", "comparative": "more expensive", "superlative": "most expensive"},
+          {"base": "cheap", "comparative": "cheaper", "superlative": "cheapest"},
+          {"base": "good", "comparative": "better", "superlative": "best"},
+          {"base": "bad", "comparative": "worse", "superlative": "worst"}
         ];
 
         const animals = {
@@ -178,8 +200,22 @@
             "Cheetah": { icon: "🐆", size: 2, speed: 5, height: 2 },
             "Giraffe": { icon: "🦒", size: 3, speed: 3, height: 5 },
             "Mouse": { icon: "🐭", size: 1, speed: 4, height: 1 },
-            "Snail": { icon: "🐌", size: 0.5, speed: 0.5, height: 0.5 }
+            "Snail": { icon: "🐌", size: 0.5, speed: 0.5, height: 0.5 },
+            "Blue Whale": { icon: "🐋", size: 10, speed: 1.5, height: 3 }
         };
+
+        const sentenceQuestions = [
+            { q: "Eugenius is the ________ person in his family.", a: "youngest", options: ["youngest", "younger", "more young", "most young"] },
+            { q: "Eugenius is the ________ boy in his class.", a: "most intelligent", options: ["most intelligent", "more intelligent", "intelligenter", "intelligentest"] },
+            { q: "Maths and Science are the ________ subjects in the world!", a: "most interesting", options: ["most interesting", "more interesting", "interestingest", "interestinger"] },
+            { q: "Ginny is three months ________ than Eugenius.", a: "younger", options: ["younger", "youngest", "more young", "most young"] },
+            { q: "Emma and Jo are ________ than Ginny.", a: "older", options: ["older", "oldest", "more old", "most old"] },
+            { q: "History is ________ than Maths and Science.", a: "more interesting", options: ["more interesting", "most interesting", "interestinger", "interestingest"] },
+            { q: "Dax is the ________ robot in the world!", a: "laziest", options: ["laziest", "lazier", "most lazy", "more lazy"] },
+            { q: "Dax thinks TV is ________ than housework.", a: "more exciting", options: ["more exciting", "most exciting", "excitinger", "excitingest"] },
+            { q: "The blue robot is ________ than the green robot.", a: "older", options: ["older", "oldest", "more old", "most old"] },
+            { q: "Who is the ________ person in the class?", a: "tallest", options: ["tallest", "taller", "most tall", "more tall"] }
+        ];
 
         function showSection(sectionId) {
             document.querySelectorAll('.section').forEach(s => s.classList.add('hidden'));
@@ -194,6 +230,11 @@
             document.getElementById('animal1-icon').innerText = animals[a1].icon;
             document.getElementById('animal2-icon').innerText = animals[a2].icon;
 
+            if (a1 === a2) {
+                document.getElementById('comparison-result').innerText = `Both are the same!`;
+                return;
+            }
+
             let trait = "bigger";
             if (animals[a1].size > animals[a2].size) trait = "bigger";
             else if (animals[a1].speed > animals[a2].speed) trait = "faster";
@@ -207,7 +248,7 @@
         function initPractice() {
             const container = document.getElementById('practice-container');
             container.innerHTML = '';
-            const samples = vocabulary.sort(() => 0.5 - Math.random()).slice(0, 5);
+            const samples = vocabulary.sort(() => 0.5 - Math.random()).slice(0, 10);
             samples.forEach((v, i) => {
                 const div = document.createElement('div');
                 div.className = "flex items-center space-x-4 p-4 bg-gray-50 rounded-xl";
@@ -238,9 +279,11 @@
                 if (isCompCorrect && isSupCorrect) {
                     res.innerText = "✅";
                     items[i].classList.add('bg-green-100');
+                    items[i].classList.remove('bg-red-100');
                 } else {
                     res.innerText = "❌";
                     items[i].classList.add('bg-red-100');
+                    items[i].classList.remove('bg-green-100');
                 }
             }
         }
@@ -261,7 +304,7 @@
         }
 
         function generateQuestions() {
-            return vocabulary.sort(() => 0.5 - Math.random()).slice(0, 10).map(v => {
+            const vocabPool = vocabulary.sort(() => 0.5 - Math.random()).slice(0, 10).map(v => {
                 const type = Math.random() > 0.5 ? 'comparative' : 'superlative';
                 const question = type === 'comparative' ?
                     `What is the comparative form of "${v.base}"?` :
@@ -271,9 +314,13 @@
                 // Distractors
                 let distractors = [];
                 if (type === 'comparative') {
-                    distractors = [v.base + "er", "more " + v.base, v.base + "est"].filter(d => d !== answer);
+                    if (v.base === 'good') distractors = ['gooder', 'more good', 'best'];
+                    else if (v.base === 'bad') distractors = ['badder', 'more bad', 'worst'];
+                    else distractors = [v.base + "er", "more " + v.base, v.base + "est"].filter(d => d !== answer);
                 } else {
-                    distractors = [v.base + "est", "most " + v.base, v.base + "er"].filter(d => d !== answer);
+                    if (v.base === 'good') distractors = ['goodest', 'most good', 'better'];
+                    else if (v.base === 'bad') distractors = ['baddest', 'most bad', 'worse'];
+                    else distractors = [v.base + "est", "most " + v.base, v.base + "er"].filter(d => d !== answer);
                 }
                 // Mix in some other random forms
                 while(distractors.length < 3) {
@@ -285,9 +332,17 @@
                 return {
                     question,
                     answer,
-                    options: [answer, ...distractors].sort(() => 0.5 - Math.random())
+                    options: [answer, ...distractors.slice(0,3)].sort(() => 0.5 - Math.random())
                 };
             });
+
+            const sentencePool = sentenceQuestions.sort(() => 0.5 - Math.random()).slice(0, 10).map(s => ({
+                question: s.q,
+                answer: s.a,
+                options: s.options.sort(() => 0.5 - Math.random())
+            }));
+
+            return [...vocabPool, ...sentencePool].sort(() => 0.5 - Math.random());
         }
 
         function showQuestion() {
