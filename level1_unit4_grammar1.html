@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1: Present Progressive - He/She</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive, sans-serif;
+            background-color: #f0f9ff;
+        }
+        .step-content {
+            display: none;
+        }
+        .step-content.active {
+            display: block;
+        }
+        .card {
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pop-on-hover:hover {
+            animation: pop 0.3s ease-in-out;
+        }
+        .grammar-chart {
+            background-color: #f3f4f6;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid #e5e7eb;
+        }
+        .grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            margin-bottom: 1rem;
+            border: 1px solid #6b7280;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+        .grammar-table th, .grammar-table td {
+            border: 1px solid #6b7280;
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+        }
+        .grammar-table th {
+            background-color: #f9fafb;
+            font-weight: bold;
+        }
+        .contraction-cell {
+            background-color: #9ca3af;
+            color: white;
+            font-style: italic;
+            font-size: 0.875rem;
+            line-height: 1.25;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800">
+
+    <div class="max-w-4xl mx-auto p-4 sm:p-8">
+        <!-- Header -->
+        <header class="text-center mb-6">
+            <h1 class="text-4xl font-bold text-blue-600 mb-2">🌟 Grammar Adventure 🌟</h1>
+            <p class="text-xl text-slate-600">Level 1 Unit 4: Present Progressive</p>
+        </header>
+
+        <!-- Grammar Chart (Always Visible) -->
+        <div class="grammar-chart shadow-sm max-w-3xl mx-auto">
+            <h2 class="text-xl font-bold mb-3 text-slate-800">Present progressive: <span class="italic">He/She is + verb-ing</span></h2>
+
+            <!-- Table 1 -->
+            <table class="grammar-table rounded-xl">
+                <thead>
+                    <tr>
+                        <th class="w-1/2">Question</th>
+                        <th>Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Where is your sister?</td>
+                        <td>She's in the kitchen.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Table 2 -->
+            <table class="grammar-table rounded-xl">
+                <thead>
+                    <tr>
+                        <th colspan="3" class="w-2/5">Question</th>
+                        <th colspan="2" class="w-2/5">Answer</th>
+                        <th class="bg-gray-400"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>What's</td>
+                        <td>she</td>
+                        <td class="font-bold">doing?</td>
+                        <td>She's</td>
+                        <td class="font-bold">eating.</td>
+                        <td rowspan="1" class="contraction-cell">
+                            What's = What is<br>
+                            She's = She is
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-2 font-bold text-slate-700 italic">
+                do &rarr; doing &nbsp;&nbsp;&nbsp; eat &rarr; eating
+            </div>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex justify-center space-x-2 mb-8" id="main-nav">
+            <button onclick="showStep('learn')" id="tab-learn" class="pop-on-hover px-6 py-2 rounded-full font-bold bg-blue-500 text-white shadow-md transition">1. Practice 📖</button>
+            <button onclick="showStep('quiz')" id="tab-quiz" class="pop-on-hover px-6 py-2 rounded-full font-bold bg-white text-blue-500 border-2 border-blue-500 hover:bg-blue-50 shadow-sm transition">2. Quiz 🚀</button>
+            <button onclick="showStep('review')" id="tab-review" class="pop-on-hover px-6 py-2 rounded-full font-bold bg-white text-blue-500 border-2 border-blue-500 hover:bg-blue-50 shadow-sm transition">3. Review 🏆</button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main id="content" class="bg-white rounded-3xl shadow-xl p-6 sm:p-10 border-4 border-blue-100">
+
+            <!-- Learn Phase -->
+            <section id="step-learn" class="step-content active">
+                <h2 class="text-3xl font-bold text-center mb-6 text-purple-600">Let's Learn! 💡</h2>
+
+                <div class="space-y-8">
+                    <!-- Basic Rule -->
+                    <div class="bg-blue-50 p-6 rounded-2xl border-2 border-blue-200">
+                        <h3 class="text-2xl font-bold text-blue-700 mb-4">📝 How to use it</h3>
+                        <p class="mb-4 text-lg">We use <b>-ing</b> to talk about what someone is doing <b>right now</b>!</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-xl shadow-sm text-center border-2 border-blue-300">
+                                <span class="block text-slate-500 text-sm">For a Girl 👧</span>
+                                <span class="text-xl font-bold text-blue-600">She is eating.</span>
+                                <span class="block text-slate-400 text-sm">(She's eating)</span>
+                            </div>
+                            <div class="bg-white p-4 rounded-xl shadow-sm text-center border-2 border-blue-300">
+                                <span class="block text-slate-500 text-sm">For a Boy 👦</span>
+                                <span class="text-xl font-bold text-blue-600">He is eating.</span>
+                                <span class="block text-slate-400 text-sm">(He's eating)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- More Examples -->
+                    <div class="bg-green-50 p-6 rounded-2xl border-2 border-green-200">
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">✨ More Examples</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                            <div class="bg-white p-3 rounded-xl shadow-sm text-center">
+                                <span class="block text-2xl mb-1">📖</span>
+                                <span class="font-bold">reading</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl shadow-sm text-center">
+                                <span class="block text-2xl mb-1">😴</span>
+                                <span class="font-bold">sleeping</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl shadow-sm text-center">
+                                <span class="block text-2xl mb-1">🎨</span>
+                                <span class="font-bold">drawing</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl shadow-sm text-center">
+                                <span class="block text-2xl mb-1">🏃</span>
+                                <span class="font-bold">running</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Practice Sentences -->
+                    <div class="bg-pink-50 p-6 rounded-2xl border-2 border-pink-200">
+                        <h3 class="text-2xl font-bold text-pink-700 mb-4">💬 Practice Sentences</h3>
+                        <ul class="space-y-3 text-lg">
+                            <li>📍 Where is your brother? <b>He's in the bedroom.</b></li>
+                            <li>❓ What's he doing? <b>He's sleeping.</b></li>
+                            <hr class="border-pink-200">
+                            <li>📍 Where is your sister? <b>She's in the garden.</b></li>
+                            <li>❓ What's she doing? <b>She's playing.</b></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mini Practice Section -->
+                <div class="mt-12 p-8 bg-slate-800 text-white rounded-3xl">
+                    <h3 class="text-2xl font-bold mb-4 text-center">Quick Check! ✅</h3>
+                    <p class="text-center mb-6">What's she doing? She is _______.</p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="checkMiniPractice(this, 'reading')" class="bg-slate-700 hover:bg-slate-600 px-6 py-2 rounded-xl font-bold transition text-white">read</button>
+                        <button onclick="checkMiniPractice(this, 'reading')" class="bg-slate-700 hover:bg-slate-600 px-6 py-2 rounded-xl font-bold transition text-white">reading</button>
+                        <button onclick="checkMiniPractice(this, 'reading')" class="bg-slate-700 hover:bg-slate-600 px-6 py-2 rounded-xl font-bold transition text-white">reads</button>
+                    </div>
+                    <p id="mini-feedback" class="text-center mt-4 h-6 font-bold"></p>
+                </div>
+
+                <div class="text-center mt-10">
+                    <button onclick="showStep('quiz')" class="bg-blue-600 hover:bg-blue-700 text-white text-2xl font-bold px-10 py-4 rounded-full shadow-lg transform hover:scale-105 transition">
+                        I'm Ready for the Quiz! 🚀
+                    </button>
+                </div>
+            </section>
+
+            <!-- Quiz Phase -->
+            <section id="step-quiz" class="step-content">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-3xl font-bold text-orange-500">Quiz Time! ✍️</h2>
+                    <div id="quiz-progress" class="text-xl font-bold text-slate-500">Question 1/10</div>
+                </div>
+
+                <div id="question-container" class="space-y-6">
+                    <!-- Question will be injected here -->
+                </div>
+
+                <div id="quiz-feedback" class="mt-8 hidden p-6 rounded-2xl text-center text-xl font-bold animate-bounce">
+                    <!-- Feedback will be injected here -->
+                </div>
+
+                <div class="mt-10 flex justify-end">
+                    <button id="next-btn" onclick="nextQuestion()" class="hidden bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-xl shadow-md transition">
+                        Next Question ➡️
+                    </button>
+                </div>
+            </section>
+
+            <!-- Review Phase -->
+            <section id="step-review" class="step-content text-center">
+                <h2 class="text-4xl font-bold text-blue-600 mb-4">Great Job! 🥳</h2>
+                <div id="final-score" class="text-6xl font-black text-purple-600 my-8">
+                    0/10
+                </div>
+                <p id="review-message" class="text-2xl text-slate-600 mb-10">
+                    You are a grammar superstar!
+                </p>
+
+                <div id="mistakes-review" class="text-left bg-slate-50 p-6 rounded-2xl border-2 border-slate-200 mb-10 hidden">
+                    <h3 class="text-2xl font-bold mb-4">Let's look at your answers:</h3>
+                    <ul id="mistakes-list" class="space-y-3 list-disc pl-5">
+                        <!-- Mistakes will be injected here -->
+                    </ul>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="restartApp()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold px-10 py-4 rounded-full shadow-lg transition">
+                        Try Again 🔄
+                    </button>
+                    <button onclick="alert('Great job! Keep learning! 🌟')" class="bg-green-500 hover:bg-green-600 text-white font-bold px-10 py-4 rounded-full shadow-lg transition">
+                        Share Score 🎀
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="mt-8 text-center text-slate-400 text-sm">
+            Made with ❤️ for young learners
+        </footer>
+    </div>
+
+    <script>
+        // Data Structure
+        const appData = {
+            questions: [
+                { q: "Where is your sister? She's _______ the kitchen.", a: "in", options: ["in", "on", "at"], logic: "We use 'in' for rooms like the kitchen." },
+                { q: "What's she doing? She's _______.", a: "eating", options: ["eat", "eating", "eats"], logic: "Add -ing for things happening now." },
+                { q: "Where is your brother? _______ in the bedroom.", a: "He's", options: ["He's", "She's", "It's"], logic: "Use 'He's' for a boy." },
+                { q: "What's he doing? He's _______.", a: "sleeping", options: ["sleep", "sleeps", "sleeping"], logic: "Add -ing for things happening now." },
+                { q: "Where is your sister? She's _______ the garden.", a: "in", options: ["in", "on", "at"], logic: "We use 'in' for the garden." },
+                { q: "What's she doing? She's _______.", a: "playing", options: ["play", "playing", "plays"], logic: "Use verb + ing." },
+                { q: "_______ is your brother? He's in the living room.", a: "Where", options: ["What", "Where", "Who"], logic: "Use 'Where' to ask about location." },
+                { q: "What's he _______? He's drawing.", a: "doing", options: ["do", "doing", "does"], logic: "Use 'doing' to ask about an action." },
+                { q: "She _______ cooking dinner.", a: "is", options: ["is", "am", "are"], logic: "She + is." },
+                { q: "He is _______ a book.", a: "reading", options: ["read", "reads", "reading"], logic: "Use verb + ing." },
+                { q: "What's she doing? She's _______.", a: "running", options: ["run", "running", "runs"], logic: "Add -ing for current actions." },
+                { q: "Where is your sister? _______ in the bathroom.", a: "She's", options: ["He's", "She's", "It's"], logic: "Use 'She's' for a girl." },
+                { q: "What's = What _______", a: "is", options: ["is", "am", "are"], logic: "What's is a short way to say What is." },
+                { q: "She's = She _______", a: "is", options: ["is", "am", "are"], logic: "She's is a short way to say She is." },
+                { q: "He's = He _______", a: "is", options: ["is", "am", "are"], logic: "He's is a short way to say He is." }
+            ]
+        };
+
+        let currentQuizQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let userAnswers = [];
+
+        function showStep(stepId) {
+            // Update tabs
+            const tabs = ['learn', 'quiz', 'review'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === stepId) {
+                    btn.className = "pop-on-hover px-6 py-2 rounded-full font-bold bg-blue-500 text-white shadow-md transition";
+                } else {
+                    btn.className = "pop-on-hover px-6 py-2 rounded-full font-bold bg-white text-blue-500 border-2 border-blue-500 hover:bg-blue-50 shadow-sm transition";
+                }
+            });
+
+            // Update content
+            document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(`step-${stepId}`).classList.add('active');
+
+            if (stepId === 'quiz') {
+                initQuiz();
+            } else if (stepId === 'review') {
+                updateReview();
+            }
+        }
+
+        function initQuiz() {
+            // Shuffle and pick 10 questions
+            currentQuizQuestions = [...appData.questions]
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 10);
+
+            currentQuestionIndex = 0;
+            score = 0;
+            userAnswers = [];
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = currentQuizQuestions[currentQuestionIndex];
+            const container = document.getElementById('question-container');
+            const progress = document.getElementById('quiz-progress');
+            const feedback = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('next-btn');
+
+            progress.innerText = `Question ${currentQuestionIndex + 1}/${currentQuizQuestions.length}`;
+            feedback.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+
+            container.innerHTML = `
+                <div class="text-2xl font-bold mb-6">${question.q}</div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    ${question.options.map(opt => `
+                        <button onclick="checkAnswer('${opt.replace(/'/g, "\\'")}')" class="option-btn bg-white border-4 border-blue-100 hover:border-blue-400 p-4 rounded-2xl text-xl font-bold transition">
+                            ${opt}
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function checkAnswer(selected) {
+            const question = currentQuizQuestions[currentQuestionIndex];
+            const feedback = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('next-btn');
+            const buttons = document.querySelectorAll('.option-btn');
+
+            // Disable all buttons
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                if (btn.innerText.trim() === question.a) {
+                    btn.classList.add('bg-green-100', 'border-green-500', 'text-green-700');
+                } else if (btn.innerText.trim() === selected) {
+                    btn.classList.add('bg-red-100', 'border-red-500', 'text-red-700');
+                }
+            });
+
+            const isCorrect = selected === question.a;
+            userAnswers.push({
+                question: question.q,
+                correct: question.a,
+                user: selected,
+                isCorrect: isCorrect,
+                logic: question.logic
+            });
+
+            if (isCorrect) {
+                score++;
+                feedback.innerHTML = "✅ Awesome! You got it! 🌟";
+                feedback.className = "mt-8 p-6 rounded-2xl text-center text-xl font-bold animate-bounce bg-green-50 text-green-700 border-2 border-green-200";
+            } else {
+                feedback.innerHTML = `❌ Oops! The correct answer is <b>${question.a}</b>. <br> <span class="text-sm font-normal">${question.logic}</span>`;
+                feedback.className = "mt-8 p-6 rounded-2xl text-center text-xl font-bold bg-red-50 text-red-700 border-2 border-red-200";
+            }
+
+            feedback.classList.remove('hidden');
+            nextBtn.classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < currentQuizQuestions.length) {
+                loadQuestion();
+            } else {
+                showStep('review');
+            }
+        }
+
+        function launchEmojiConfetti() {
+            const emojis = ['🌟', '✨', '🎈', '🎉', '🎊', '🏆', '🔥'];
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.position = 'fixed';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-20px';
+                confetti.style.fontSize = Math.random() * 20 + 20 + 'px';
+                confetti.style.zIndex = '1000';
+                confetti.style.transition = 'transform 2s linear, top 2s linear';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.style.top = '100vh';
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                }, 10);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 2000);
+            }
+        }
+
+        function updateReview() {
+            const finalScore = document.getElementById('final-score');
+            const reviewMsg = document.getElementById('review-message');
+            const mistakesReview = document.getElementById('mistakes-review');
+
+            finalScore.innerText = `${score}/${currentQuizQuestions.length}`;
+
+            if (score === currentQuizQuestions.length) {
+                reviewMsg.innerText = "Perfect Score! You are a Grammar Master! 🏆✨";
+                mistakesReview.classList.add('hidden');
+                launchEmojiConfetti();
+            } else if (score >= currentQuizQuestions.length / 2) {
+                launchEmojiConfetti();
+                reviewMsg.innerText = "Great job! You know your grammar! 🌟";
+                showMistakes();
+            } else {
+                reviewMsg.innerText = "Keep practicing! You can do it! 💪";
+                showMistakes();
+            }
+        }
+
+        function showMistakes() {
+            const mistakesList = document.getElementById('mistakes-list');
+            const mistakesReview = document.getElementById('mistakes-review');
+            mistakesReview.classList.remove('hidden');
+
+            mistakesList.innerHTML = userAnswers.map(ans => `
+                <li class="mb-4">
+                    <p class="font-bold">${ans.question.replace('_______', `<span class="${ans.isCorrect ? 'text-green-600' : 'text-red-600 underline'}">${ans.user}</span>`)}</p>
+                    ${!ans.isCorrect ? `<p class="text-sm text-slate-600">Correct: <span class="font-bold text-green-600">${ans.correct}</span>. ${ans.logic}</p>` : ''}
+                </li>
+            `).join('');
+        }
+
+        function restartApp() {
+            showStep('learn');
+        }
+
+        function checkMiniPractice(btn, correct) {
+            const feedback = document.getElementById('mini-feedback');
+            const text = btn.innerText.trim();
+            if (text === correct) {
+                feedback.innerText = "Correct! 🌟 Well done.";
+                feedback.className = "text-center mt-4 h-6 font-bold text-green-500";
+                btn.classList.add('bg-green-600');
+            } else {
+                feedback.innerText = "Try again! Remember to use -ing. 🤔";
+                feedback.className = "text-center mt-4 h-6 font-bold text-red-500";
+                btn.classList.add('bg-red-600');
+                setTimeout(() => {
+                    btn.classList.remove('bg-red-600');
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html>
