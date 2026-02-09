@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5: My Favorites - Vocabulary 1</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'PT Serif', serif;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+        .page-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            min-height: 1000px;
+        }
+        .circle-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: black;
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .word-bank {
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .word-bank span {
+            text-align: center;
+        }
+        .sentence-input {
+            border-bottom: 2px solid #3b82f6;
+            color: #3b82f6;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 0.3em;
+            text-transform: lowercase;
+            padding: 0 5px;
+            outline: none;
+            width: auto;
+            display: inline-block;
+        }
+        .sentence-input.correct {
+            border-bottom-color: green;
+            color: green;
+        }
+        .sentence-input.incorrect {
+            border-bottom-color: red;
+            color: red;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background: #eee;
+        }
+        .tab-button.active {
+            background: white;
+            border-bottom: none;
+            font-weight: bold;
+        }
+        .hidden {
+            display: none;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #888;
+            color: white;
+        }
+        .writing-line {
+            border-bottom: 1px solid #333;
+            margin-bottom: 15px;
+            height: 30px;
+        }
+        .check-btn {
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .check-btn:hover {
+            background: #555;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .illustration {
+            font-size: 40px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="flex justify-center mt-4">
+    <button class="tab-button active" onclick="showPage(1)">Page 1</button>
+    <button class="tab-button" onclick="showPage(2)">Page 2</button>
+</div>
+
+<div id="page1" class="page-container">
+    <div class="text-sm font-bold">Unit 5</div>
+    <h1 class="text-4xl font-bold mb-2">My Favorites</h1>
+    <div class="text-sm font-bold mb-4 uppercase">VOCABULARY 1</div>
+
+    <div class="flex items-start mb-4">
+        <span class="circle-num">1</span>
+        <div>
+            <p class="font-bold">Read and write. <span class="font-normal italic">Complete the sentences.</span></p>
+        </div>
+    </div>
+
+    <div class="word-bank">
+        <span>actor</span><span>amazing</span><span>athletes</span><span>brave</span>
+        <span>cool</span><span>famous</span><span>funny</span><span>great</span>
+        <span>handsome</span><span>movies</span><span>person</span><span>popular</span>
+        <span>pretty</span><span>talented</span><span>wonderful</span>
+    </div>
+
+    <div class="space-y-3" id="activity1-sentences">
+        <!-- Sentences will be injected here -->
+    </div>
+
+    <div class="flex justify-around mt-10 illustration">
+        <span>👨‍💼</span><span>⚽</span><span>👨‍🚒</span><span>👫</span>
+    </div>
+
+    <button class="check-btn" onclick="checkActivity1()">Check Answers</button>
+    <div id="feedback1" class="feedback"></div>
+</div>
+
+<div id="page2" class="page-container hidden">
+    <div class="flex items-start mb-4">
+        <span class="circle-num">2</span>
+        <div>
+            <p class="font-bold">Listen and write. <span class="font-normal italic">Complete the conversations.</span> <span class="text-xs">TR: 5.1</span></p>
+        </div>
+    </div>
+
+    <div class="space-y-6">
+        <div>
+            <p>1. <strong>Alex:</strong> Hey Erica, what do you think of Millie Bobby Brown, the <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-1"> actor in <i>Stranger Things</i>?</p>
+            <p class="ml-4"><strong>Erica:</strong> Oh, her! I think she’s <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-2">. And she’s very <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-3">! What about you?</p>
+            <p class="ml-4"><strong>Alex:</strong> I think she’s <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-4">. And she’s really <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-5">, too. She’s my favorite actor, in fact.</p>
+        </div>
+
+        <div>
+            <p>2. <strong>Erica:</strong> Do you like Usain Bolt, Alex?</p>
+            <p class="ml-4"><strong>Alex:</strong> Do you mean the <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-6"> <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-7"> from Jamaica?</p>
+            <p class="ml-4"><strong>Erica:</strong> Yes, that’s right.</p>
+            <p class="ml-4"><strong>Alex:</strong> Well, he’s very <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-8">, and sometimes he’s <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-9">. But he’s not my favorite athlete.</p>
+            <p class="ml-4"><strong>Erica:</strong> Really? I don’t agree. I think he’s really <input type="text" class="border-b border-black outline-none w-24 px-1" id="act2-10">. He’s my favorite.</p>
+        </div>
+    </div>
+
+    <button class="check-btn" onclick="checkActivity2()">Check Answers</button>
+    <div id="feedback2" class="feedback"></div>
+
+    <div class="flex items-start mt-10 mb-4">
+        <span class="circle-num">3</span>
+        <div>
+            <p class="font-bold">Write. <span class="font-normal italic">List one example of each. Write two adjectives to describe them.</span> <span class="text-blue-500 text-sm">Answers will vary.</span></p>
+        </div>
+    </div>
+
+    <div class="bg-gray-100 p-3 rounded mb-2 text-sm">
+        <strong>Adjectives Word Bank:</strong> actor, amazing, athletes, brave, cool, famous, funny, great, handsome, movies, person, popular, pretty, talented, wonderful
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>My choice</th>
+                <th>My opinion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>an actor</td>
+                <td><input type="text" class="w-full outline-none"></td>
+                <td><input type="text" class="w-full outline-none"></td>
+            </tr>
+            <tr>
+                <td>a cartoon character</td>
+                <td><input type="text" class="w-full outline-none"></td>
+                <td><input type="text" class="w-full outline-none"></td>
+            </tr>
+            <tr>
+                <td>a popular person or place in your country</td>
+                <td><input type="text" class="w-full outline-none"></td>
+                <td><input type="text" class="w-full outline-none"></td>
+            </tr>
+            <tr>
+                <td>a great movie or a silly movie</td>
+                <td><input type="text" class="w-full outline-none"></td>
+                <td><input type="text" class="w-full outline-none"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="flex items-start mt-10 mb-4">
+        <span class="circle-num">4</span>
+        <div>
+            <p class="font-bold">Write about two people or things in Activity 3. <span class="font-normal italic text-blue-500">Answers will vary.</span></p>
+        </div>
+    </div>
+
+    <div class="italic text-gray-600 mb-4">Example: I really like the actor Millie Bobby Brown. I think she’s wonderful. And she’s talented, too.</div>
+
+    <div>
+        <div class="writing-line"><input type="text" class="w-full h-full bg-transparent outline-none"></div>
+        <div class="writing-line"><input type="text" class="w-full h-full bg-transparent outline-none"></div>
+        <div class="writing-line"><input type="text" class="w-full h-full bg-transparent outline-none"></div>
+        <div class="writing-line"><input type="text" class="w-full h-full bg-transparent outline-none"></div>
+    </div>
+</div>
+
+<script>
+    function showPage(page) {
+        document.getElementById('page1').classList.toggle('hidden', page !== 1);
+        document.getElementById('page2').classList.toggle('hidden', page !== 2);
+        const buttons = document.querySelectorAll('.tab-button');
+        buttons[0].classList.toggle('active', page === 1);
+        buttons[1].classList.toggle('active', page === 2);
+    }
+
+    const activity1Data = [
+        { q: "She has a beautiful face and hair. She’s very", a: "pretty" },
+        { q: "My sister can sing, dance, and play sports. She’s very", a: "talented" },
+        { q: "This man plays a part in a movie. He is an", a: "actor" },
+        { q: "Firefighters and police officers are very", a: "brave" },
+        { q: "Our teacher is funny and kind. She’s a wonderful", a: "person" },
+        { q: "He’s tall, with a nice face and black hair. He’s", a: "handsome" },
+        { q: "____ are so cool. I like tennis players and soccer players.", a: "athletes" },
+        { q: "There are many ____ places to see in my country.", a: "wonderful" },
+        { q: "You can watch ____ on TV or at the theater.", a: "movies" },
+        { q: "I’d like to be a famous pop star or a rapper. They’re so", a: "cool" },
+        { q: "Did you see the movie on TV last night? It was", a: "great" },
+        { q: "He makes us laugh all the time. He’s so", a: "funny" },
+        { q: "Everyone knows me because I’m on TV. I’m", a: "famous" },
+        { q: "People all around the world love his movies. He’s very", a: "popular" },
+        { q: "She has done so many ____ things in her life. I want to be like her!", a: "amazing" }
+    ];
+
+    const act2Answers = ["actor", "amazing", "pretty", "wonderful", "talented", "famous", "athlete", "talented", "funny", "cool"];
+
+    function initActivity1() {
+        const container = document.getElementById('activity1-sentences');
+        activity1Data.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = "flex flex-wrap items-baseline";
+
+            const parts = item.q.split('____');
+            const inputWidth = (item.a.length * 1.2) + "em";
+            const questionHtml = parts.length === 2
+                ? `${index + 1}. ${parts[0]} <input type="text" class="sentence-input" style="width: ${inputWidth}" data-answer="${item.a}" value="${index === 0 ? 'pretty' : ''}" ${index === 0 ? 'disabled' : ''}> ${parts[1]}`
+                : `${index + 1}. ${item.q} <input type="text" class="sentence-input" style="width: ${inputWidth}" data-answer="${item.a}">.`;
+
+            div.innerHTML = questionHtml;
+            container.appendChild(div);
+        });
+    }
+
+    function checkActivity1() {
+        const inputs = document.querySelectorAll('#activity1-sentences .sentence-input');
+        let correctCount = 0;
+        inputs.forEach(input => {
+            const userVal = input.value.trim().toLowerCase().replace(/\s/g, '');
+            const correctVal = input.getAttribute('data-answer').toLowerCase();
+            if (userVal === correctVal) {
+                input.classList.add('correct');
+                input.classList.remove('incorrect');
+                correctCount++;
+            } else {
+                input.classList.add('incorrect');
+                input.classList.remove('correct');
+            }
+        });
+        document.getElementById('feedback1').innerText = `You got ${correctCount} out of ${inputs.length} correct!`;
+    }
+
+    function checkActivity2() {
+        let correctCount = 0;
+        act2Answers.forEach((ans, i) => {
+            const input = document.getElementById(`act2-${i+1}`);
+            if (input.value.trim().toLowerCase().replace(/\s/g, '') === ans.toLowerCase().replace(/\s/g, '')) {
+                input.style.color = 'green';
+                input.style.borderBottomColor = 'green';
+                correctCount++;
+            } else {
+                input.style.color = 'red';
+                input.style.borderBottomColor = 'red';
+            }
+        });
+        document.getElementById('feedback2').innerText = `You got ${correctCount} out of ${act2Answers.length} correct!`;
+    }
+
+    initActivity1();
+</script>
+
+</body>
+</html>
